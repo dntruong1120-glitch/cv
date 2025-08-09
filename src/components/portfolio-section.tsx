@@ -80,7 +80,7 @@ export default function PortfolioSection() {
     description: item.fullDescription
   }));
 
-  const openLightbox = (index) => {
+  const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setLightboxOpen(true);
   };
@@ -136,8 +136,16 @@ export default function PortfolioSection() {
                       objectFit: 'cover',
                       transition: 'transform 0.3s ease',
                     }}
-                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                    onMouseEnter={(e) => {
+  const target = e.target as HTMLElement;
+  target.style.transform = 'scale(1.05)';
+}}
+
+onMouseLeave={(e) => {
+  const target = e.target as HTMLElement;
+  target.style.transform = 'scale(1)';
+}}
+
                   />
                 </div>
                 <div className="card-content">
